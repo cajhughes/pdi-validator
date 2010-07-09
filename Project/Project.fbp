@@ -1,0 +1,5 @@
+<Project name="Project">
+  <Jar>C:/dev/pdi-validator/trunk/Project/classes</Jar>
+  <AuxClasspathEntry>C:/Kettle/data-integration/lib/kettle-core.jar</AuxClasspathEntry>
+  <SrcDir>C:/dev/pdi-validator/trunk/Project/src</SrcDir>
+</Project>

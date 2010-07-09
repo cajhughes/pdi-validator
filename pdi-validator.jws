@@ -1,0 +1,11 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<jws:workspace xmlns:jws="http://xmlns.oracle.com/ide/project">
+   <value n="application-package-prefix" v="com.vendavo.pdi"/>
+   <value n="appTemplateId" v="#genericApplicationTemplate"/>
+   <hash n="component-versions">
+      <value n="oracle.ide.model.Project" v="11.1.1.1.0"/>
+   </hash>
+   <list n="listOfChildren">
+      <hash><url n="URL" path="Project/Project.jpr"/></hash>
+   </list>
+</jws:workspace>
