@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<project name="Project" default="all" basedir=".">
+  <property file="build.properties"/>
+  <path id="library.Kettle">
+    <pathelement location="${kettle.home}/lib/kettle-core.jar"/>
+  </path>
+  <path id="classpath">
+    <path refid="library.Kettle"/>
+  </path>
+  <target name="init">
+    <tstamp/>
+  </target>
+  <target name="all" description="Build the project" depends="jar">
+    <copy file="${dist.dir}/pa-jumpstart-validation.jar" todir="${kettle.home}/libext"/>
+  </target>
+  <target name="clean" description="Clean the project">
+    <delete dir="${build.dir}"/>
+    <delete dir="${dist.dir}"/>
+  </target>
+  <target name="compile" description="Compile Java source files" depends="clean">
+    <mkdir dir="${build.dir}"/>
+    <javac destdir="${build.dir}" classpathref="classpath"
+           debug="${javac.debug}" nowarn="${javac.nowarn}"
+           deprecation="${javac.deprecation}" encoding="Cp1252" source="1.5" target="1.5">
+      <src path="src"/>
+    </javac>
+  </target>
+  <target name="copy" description="Copy files for inclusion in JAR" depends="init">
+    <patternset id="copy.patterns">
+      <include name="**/*.properties"/>
+    </patternset>
+    <copy todir="${build.dir}">
+      <fileset dir="src">
+        <patternset refid="copy.patterns"/>
+      </fileset>
+    </copy>
+  </target>
+  <target name="jar" description="Construct JAR file" depends="compile,copy">
+    <mkdir dir="${dist.dir}"/>
+    <jar destfile="${dist.dir}/pa-jumpstart-validation.jar" basedir="${build.dir}"/>
+  </target>
+</project>
