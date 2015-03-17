@@ -1,0 +1,1 @@
+This project contains some simple validation routines that can be plugged into the Pentaho Data Integration suite, to allow for incoming transaction data to be quickly and easily validated.
